@@ -1,139 +1,105 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+# Create updated HTML file with direct chat implementation
+html_content = """<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2113.6">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000; min-height: 14.0px}
-    span.s1 {font-kerning: none}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chat with Keyla - Dr. John Arango's AI Assistant for Functional Medicine">
+    <title>Keyla - Dr. John Arango's AI Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background-color: #1A1A1A;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header img {
+            height: 40px;
+            margin-right: 15px;
+        }
+
+        .header h1 {
+            color: #FFFFFF;
+            font-family: 'Bebas Neue', sans-serif;
+            margin: 0;
+            font-size: 28px;
+            letter-spacing: 0.5px;
+        }
+
+        .chat-frame {
+            flex: 1;
+            width: 100%;
+            border: none;
+            background: #f9f9f9;
+        }
+
+        .footer {
+            background-color: #1A1A1A;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: #FFFFFF;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer a:hover {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 24px;
+            }
+            .header img {
+                height: 32px;
+            }
+        }
+    </style>
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;Keyla - Dr. John Arango's AI Assistant&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;display=swap" rel="stylesheet"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body, html {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-family: Helvetica, Arial, sans-serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #FFFFFF;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex-direction: column;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* Header Styling */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.header {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #1A1A1A;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>justify-content: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.header img {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 40px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-right: 15px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.header h1 {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #FFFFFF;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-family: 'Bebas Neue', sans-serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 24px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* Chat Container */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.chat-container {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex: 1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: relative;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* Footer */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.footer {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #1A1A1A;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #FFFFFF;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 12px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.footer a {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #FFFFFF;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-decoration: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.footer a:hover {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-decoration: underline;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* Loading Message */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.loading {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: absolute;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>top: 50%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>left: 50%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transform: translate(-50%, -50%);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #4A4A4A;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- Header --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="header"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;img src="https://drjohnarango.com/wp-content/uploads/2023/12/Dr.-John-Arango-Logo-1.png" alt="Dr. John Arango Logo"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h1&gt;Chat with Keyla&lt;/h1&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- Chat Interface Container --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="chat-container"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="loading"&gt;Loading Keyla...&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- Abacus.AI Chat Widget --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;script src="https://cdn.abacus.ai/chat-widget.js"&gt;&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>window.addEventListener('load', function() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>AbacusAI.init({</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>applicationId: '2c4633a0',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>deploymentToken: '4a83f075f8c84a15929145986aa56e69',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>chat_window_size: 'large',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>chat_window_height: '100%',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>chat_window_width: '100%',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>show_chat_bubble: false,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>theme: {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>primary_color: '#1A1A1A',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>secondary_color: '#4A4A4A',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>background_color: '#FFFFFF',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>text_color: '#2D2D2D',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>logo_url: 'https://drjohnarango.com/wp-content/uploads/2023/12/Dr.-John-Arango-Logo-1.png',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>logo_height: '40px',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>chat_window_title: "Keyla - Your Functional Health Guide",</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>welcome_message: "Ask me anything about Dr. John Arango, his specialties, how to make an appointment, or the functional health approach!"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>});</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Hide loading message once chat is loaded</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>setTimeout(function() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>document.querySelector('.loading').style.display = 'none';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}, 2000);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- Footer --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="footer"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="https://drjohnarango.com" target="_blank"&gt;Visit Dr. John Arango's Website&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+    <!-- Header -->
+    <div class="header">
+        <img src="https://drjohnarango.com/wp-content/uploads/2023/12/Dr.-John-Arango-Logo-1.png" alt="Dr. John Arango Logo">
+        <h1>Chat with Keyla</h1>
+    </div>
+
+    <!-- Chat Interface -->
+    <iframe 
+        class="chat-frame"
+        src="https://apps.abacus.ai/chat/2c4633a0"
+        allow="microphone"
+    ></iframe>
+
+    <!-- Footer -->
+    <div class="footer">
+        <a href="https://drjohnarango.com" target="_blank">Visit Dr. John Arango's Website</a>
+    </div>
 </body>
 </html>
+"""
+
+# Save as index.html
+with open('index.html', 'w') as f:
+    f.write(html_content)
+
+print("Created updated index.html file!")
